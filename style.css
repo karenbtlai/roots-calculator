@@ -1,3 +1,18 @@
+@media (max-width:767px) {
+
+	#circle {
+		width:110% !important;
+		position:fixed !important;
+
+		padding: 0px !important;
+		border-radius: 0px !important;
+
+		left: -5% !important;
+		top:-10% !important;
+	}
+
+}
+
 * {
 	margin:0;
 	padding:0;
