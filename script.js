@@ -18,19 +18,23 @@ function getKeys() {
 	var values = ["a", "b", "c"];
 	var j = 0;
 
+	document.getElementById("root").innerHTML = "";
+
 	function reset() {
 		document.getElementById("a").innerHTML = "a";
 		document.getElementById("b").innerHTML = "b";
 		document.getElementById("c").innerHTML = "c";
 		document.getElementById("root").innerHTML = "";
+		document.getElementById("output").innerHTML = "";
 		document.getElementById("display").innerHTML = "";
 		j = 0;
-	}	
+	}
+
 
 	document.addEventListener("keydown", function(event) {
 		var input = document.querySelector("#root");
 		var code = event.keyCode;
-		console.log(code);
+		//console.log(code);
 			
 		if (j > 3) {
 				//console.log("j > 3");
@@ -88,7 +92,9 @@ function getKeys() {
 
 		keys[i].onclick = function(e) {
 			var input = document.querySelector("#root");
+			
 			var inputVal = input.innerHTML;
+			var inputTrunc = inputVal.substring(0, 3);
 			var btnVal = this.innerHTML;
 
 			if (j > 3) {
@@ -103,7 +109,9 @@ function getKeys() {
 			} else if (btnVal == "Ent") {
 
 				if (j < 3) {
-					document.getElementById(values[j]).innerHTML = inputVal; 
+					document.getElementById(values[j]).innerHTML = inputTrunc;
+					console.log(inputVal);
+					console.log(inputTrunc); 
 					input.innerHTML = "";
 					j++;
 				} 
@@ -134,20 +142,22 @@ function discriminant() {
 	var dis1 = (-b);
 	var dis2 = 2*a;
 
+	var display = document.getElementById("display");
+
 	if (a == 0) {
-		document.getElementById("display").innerHTML = "Please enter an integer.";
+		display.innerHTML = "Please enter an integer.";
 	} else {
 
 		if (dis > 0) {
-			document.getElementById("display").innerHTML = "2 real solutions.";
+			display.innerHTML = "2 real solutions.";
 		} else if ( dis == 0) {
-			document.getElementById("display").innerHTML = "Repeated root."
+			display.innerHTML = "Repeated root."
 		} else if (dis < 0) {
-			document.getElementById("display").innerHTML = "No real solution.";
+			display.innerHTML = "No real solution.";
 		}
 		//document.getElementById("equation").innerHTML = a + "x\u00B2" + "+" + b + "x" + c + "=0";
 		var rootVal = roots(dis, dis1, dis2);
-		document.getElementById("root").innerHTML = rootVal;
+		document.getElementById("output").innerHTML = rootVal;
 
 	}	
 }

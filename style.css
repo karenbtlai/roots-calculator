@@ -76,16 +76,29 @@ sup {
 
 }
 
-#equation, #display, #root {
+#equation, #display, #root, #output {
 	color: #3C4944;
 	margin: 20px;
 	margin-top: 10px;
 	line-height: 0;
+	height:20px;
 
 }
 
+#output {
+	position:absolute;
+	right:265px;
+}
 #root {
 	float: right;
+	max-width:60px;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+
+	line-height:normal;
+	margin-top:0px;
+
 }
 
 .keys {
