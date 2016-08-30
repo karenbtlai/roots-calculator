@@ -35,6 +35,9 @@ function getKeys() {
 		var input = document.querySelector("#root");
 		var code = event.keyCode;
 		//console.log(code);
+
+		var inputVal = input.innerHTML;
+		var inputTrunc = inputVal.substring(0, 3);
 			
 		if (j > 3) {
 				//console.log("j > 3");
@@ -63,7 +66,7 @@ function getKeys() {
 			});
 
 			if (j < 3) {
-				document.getElementById(values[j]).innerHTML = input.innerHTML; 
+				document.getElementById(values[j]).innerHTML = inputTrunc; 
 				input.innerHTML = "";
 				j++;
 			} 
@@ -111,7 +114,7 @@ function getKeys() {
 				if (j < 3) {
 					document.getElementById(values[j]).innerHTML = inputTrunc;
 					console.log(inputVal);
-					console.log(inputTrunc); 
+					console.log(inputTrunc);
 					input.innerHTML = "";
 					j++;
 				} 
